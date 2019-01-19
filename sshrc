@@ -40,6 +40,5 @@ add_bash_prompt() {
 export EDITOR="vim"
 export LESSCHARSET=utf-8
 
-bash
 vimrc
 add_bash_prompt
