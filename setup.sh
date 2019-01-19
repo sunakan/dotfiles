@@ -23,6 +23,7 @@ ln -sf `pwd`/vimrc ~/.vimrc
 ln -sf `pwd`/bash_profile ~/.bash_profile
 ln -sf `pwd`/tmux.conf ~/.tmux.conf
 ln -sf `pwd`/ansible.cfg ~/.ansible.cfg
+ln -sf `pwd`/dircolors ~/.dircolors
 
 #=======================================================
 # vimのプラグイン管理
