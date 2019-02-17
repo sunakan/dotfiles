@@ -23,6 +23,8 @@ augroup HighlightTrailingSpaces
 augroup END
 
 " インデント関連
+set list
+set listchars=tab:»-,trail:-
 set tabstop=2
 set shiftwidth=2
 set expandtab
