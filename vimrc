@@ -1,10 +1,13 @@
 colorscheme desert
-
 if filereadable(expand('~/.vim/autoload/plug.vim'))
   call plug#begin('~/.vim/plugged')
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+    Plug 'w0ng/vim-hybrid'
   call plug#end()
+  set background=dark
+  colorscheme hybrid
+
   let g:indent_guides_enable_on_vim_startup = 1
   let g:indent_guides_auto_colors=0
   let g:indent_guides_start_level=1
