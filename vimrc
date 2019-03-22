@@ -40,7 +40,7 @@ au BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4
 "set cursorline
 
 " 121桁目から背景を変える
-let &colorcolumn=join(range(121,999),",")
+let &colorcolumn=join([81,91]+range(121,999),",")
 hi ColorColumn ctermbg=235 guibg=#2c2d27
 
 " 新しいウィンドウを下に開く
