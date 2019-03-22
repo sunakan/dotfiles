@@ -50,3 +50,9 @@ set splitright
 
 " 行番号の色を指定
 highlight LineNr ctermfg=155
+
+" Vagrantfileのシンタックスハイライト
+augroup vagrant
+  au!
+  au BufRead,BufNewFile Vagrantfile set filetype=ruby
+augroup END
