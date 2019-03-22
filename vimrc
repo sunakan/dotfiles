@@ -47,3 +47,6 @@ hi ColorColumn ctermbg=235 guibg=#2c2d27
 set splitbelow
 " 新しいウィンドウを右に開く
 set splitright
+
+" 行番号の色を指定
+highlight LineNr ctermfg=155
