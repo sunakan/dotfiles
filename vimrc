@@ -2,11 +2,12 @@ colorscheme desert
 if filereadable(expand('~/.vim/autoload/plug.vim'))
   call plug#begin('~/.vim/plugged')
     Plug 'nathanaelkane/vim-indent-guides'
-    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'w0ng/vim-hybrid'
+    Plug 'slim-template/vim-slim'
+    Plug 'hashivim/vim-terraform'
   call plug#end()
-  set background=dark
-  colorscheme hybrid
+  "set background=dark
+  "colorscheme hybrid
 
   let g:indent_guides_enable_on_vim_startup = 1
   let g:indent_guides_auto_colors=0
@@ -14,8 +15,8 @@ if filereadable(expand('~/.vim/autoload/plug.vim'))
   let g:indent_guides_guide_size=1
   hi IndentGuidesOdd  ctermbg=236
   hi IndentGuidesEven ctermbg=243
-  let mapleader = ","
-  nmap <leader>ne :NERDTree<cr>
+  " Terraformの自動フォーマット
+  let g:terraform_fmt_on_save = 1
 endif
 
 " 自動で行末の空白を削除
