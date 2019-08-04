@@ -150,3 +150,10 @@ promps
 export EDITOR="vim"
 export LESSCHARSET=utf-8
 alias ssh='sshrc'
+#export RUBYOPT=-W0
+
+#export PATH="$HOME/.cargo/bin:$PATH"
+
+# XServer 用
+export DISPLAY=:0.0
+export LIBGL_ALWAYS_INDIRECT=1
