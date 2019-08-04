@@ -35,6 +35,9 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 au BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.java set expandtab tabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.gradle set expandtab tabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.groovy set expandtab tabstop=4 shiftwidth=4
 
 " カレント行
 "set cursorline
@@ -56,3 +59,6 @@ augroup vagrant
   au!
   au BufRead,BufNewFile Vagrantfile set filetype=ruby
 augroup END
+
+" Jenkinsifleのシンタックスハイライト
+au BufNewFile,BufRead Jenkinsfile setf groovy
