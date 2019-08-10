@@ -43,11 +43,10 @@ au BufNewFile,BufRead *.groovy set expandtab tabstop=4 shiftwidth=4
 
 " 行番号とカレント行
 set cursorline
-hi CursorLine term=reverse cterm=none ctermbg=240
-hi CursorLineNr term=bold cterm=NONE ctermfg=228 ctermbg=NONE
-" 行番号の色を指定
+hi CursorLine   term=reverse cterm=none ctermbg=240
+hi CursorLineNr term=bold    cterm=none ctermfg=228 ctermbg=none
 set number
-hi LineNr ctermfg=47
+hi LineNr ctermfg=59
 
 " 121桁目から背景を変える
 let &colorcolumn=join([81,91]+range(121,999),",")
