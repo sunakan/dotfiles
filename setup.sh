@@ -37,3 +37,11 @@ ln -sf `pwd`/dircolors ~/.dircolors
 if ! [ -e ~/.vim/autoload/plug.vim ]; then
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
+
+#=======================================================
+# その他
+#=======================================================
+grep -rn 'EDITOR="vim"'      ~/.bashrc || echo export EDITOR=\"vim\"    >> ~/.bashrc
+grep -rn 'LESSCHARSET=utf-8' ~/.bashrc || echo export LESSCHARSET=utf-8 >> ~/.bashrc
+grep -rn 'alias ssh="sshrc"' ~/.bashrc || echo alias ssh=\"sshrc\"      >> ~/.bashrc
+grep -rn 'DISPLAY=:0.0'      ~/.bashrc || echo DISPLAY=:0.0             >> ~/.bashrc
