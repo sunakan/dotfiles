@@ -14,8 +14,8 @@ if filereadable(expand('~/.vim/autoload/plug.vim'))
   let g:indent_guides_auto_colors=0
   let g:indent_guides_start_level=1
   let g:indent_guides_guide_size=1
-  hi IndentGuidesOdd  ctermbg=236
-  hi IndentGuidesEven ctermbg=243
+  hi IndentGuidesOdd  ctermbg=237
+  hi IndentGuidesEven ctermbg=241
   " Terraformの自動フォーマット
   let g:terraform_fmt_on_save = 1
 endif
