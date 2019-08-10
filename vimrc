@@ -1,3 +1,4 @@
+" :PlugInstall でインストール
 colorscheme desert
 if filereadable(expand('~/.vim/autoload/plug.vim'))
   call plug#begin('~/.vim/plugged')
@@ -40,8 +41,13 @@ au BufNewFile,BufRead *.java set expandtab tabstop=4 shiftwidth=4
 au BufNewFile,BufRead *.gradle set expandtab tabstop=4 shiftwidth=4
 au BufNewFile,BufRead *.groovy set expandtab tabstop=4 shiftwidth=4
 
-" カレント行
-"set cursorline
+" 行番号とカレント行
+set cursorline
+hi CursorLine term=reverse cterm=none ctermbg=240
+hi CursorLineNr term=bold cterm=NONE ctermfg=228 ctermbg=NONE
+" 行番号の色を指定
+set number
+hi LineNr ctermfg=47
 
 " 121桁目から背景を変える
 let &colorcolumn=join([81,91]+range(121,999),",")
@@ -51,9 +57,6 @@ hi ColorColumn ctermbg=235 guibg=#2c2d27
 set splitbelow
 " 新しいウィンドウを右に開く
 set splitright
-
-" 行番号の色を指定
-highlight LineNr ctermfg=155
 
 " Vagrantfileのシンタックスハイライト
 augroup vagrant
