@@ -6,9 +6,10 @@ if filereadable(expand('~/.vim/autoload/plug.vim'))
     Plug 'w0ng/vim-hybrid'
     Plug 'slim-template/vim-slim'
     Plug 'hashivim/vim-terraform'
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   call plug#end()
   "set background=dark
-  "colorscheme hybrid
+  colorscheme hybrid
 
   let g:indent_guides_enable_on_vim_startup = 1
   let g:indent_guides_auto_colors=0
@@ -45,11 +46,11 @@ au BufNewFile,BufRead *.groovy set expandtab tabstop=4 shiftwidth=4
 set cursorline
 hi CursorLine   term=reverse cterm=none ctermbg=240
 hi CursorLineNr term=bold    cterm=none ctermfg=228 ctermbg=none
-set number
+"set number
 hi LineNr ctermfg=59
 
 " 121桁目から背景を変える
-let &colorcolumn=join([81,91]+range(121,999),",")
+let &colorcolumn=join([51,81,91]+range(121,999),",")
 hi ColorColumn ctermbg=235 guibg=#2c2d27
 
 " 新しいウィンドウを下に開く
