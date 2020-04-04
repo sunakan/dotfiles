@@ -19,7 +19,7 @@ add_bash_prompt() {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
   }
   function promps {
-    # 色は気分で変えたいかもしれないので変す宣言しておく
+    # 色は気分で変えたいかもしれないので変数で宣言しておく
     local BLUE="\[\e[1;34m\]"
     local RED="\[\e[1;31m\]"
     local GREEN="\[\e[1;32m\]"
@@ -37,8 +37,18 @@ add_bash_prompt() {
   promps
 }
 
+gitconfig() {
+  cp ${SSHHOME}/.sshrc.d/.gitconfig ~/.gitconfig
+}
+
+enable_direnv() {
+  eval "$(direnv hook bash)"
+}
+
 export EDITOR="vim"
 export LESSCHARSET=utf-8
 
 vimrc
 add_bash_prompt
+gitconfig
+enable_direnv
