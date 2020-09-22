@@ -53,10 +53,39 @@ function editor {
 #---------------------
 enable_direnv() {
   eval "$(direnv hook bash)"
+  direnv allow
 }
+
+#---------------------
+# snap用のPATH
+#---------------------
+setup_path_for_snap() {
+  snap_bin_path="/snap/bin"
+  if [ -n "${PATH##*${snap_bin_path}}" -a -n "${PATH##*${snap_bin_path}:*}" ]; then
+      export PATH=$PATH:${snap_bin_path}
+  fi
+}
+
+#---------------------
+# goenv
+# $ goenv -v
+# $ goenv install -l
+#---------------------
+setup_goenv() {
+  export GOENV_ROOT=${HOME}/.goenv
+  if [ -n "${PATH##*${GOENV_ROOT}}" -a -n "${PATH##*${GOENV_ROOT}:*}" ]; then
+    export PATH=$GOENV_ROOT/bin:$PATH
+    eval "$(goenv init -)"
+  else
+    echo 'gopath 設定済み'
+  fi
+}
+
 
 promps
 tmux_alias
 gitconfig
 editor
 enable_direnv
+#setup_path_for_snap
+setup_goenv
