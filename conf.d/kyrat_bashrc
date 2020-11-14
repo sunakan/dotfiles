@@ -38,6 +38,8 @@ function tmux_alias {
 function gitconfig {
   git config --global user.name "sunakan"
   git config --global user.email "sunakan03@gmail.com"
+  git config --global credential.helper cache
+  git config --global credential.helper 'cache --timeout=36000'
 }
 
 #---------------------
@@ -67,6 +69,21 @@ setup_path_for_snap() {
 }
 
 #---------------------
+# anyenv
+# $ anyenv -v
+#---------------------
+setup_path_for_anyenv() {
+  anyenv_bin_path=".anyenv/bin/anyenv"
+  if [ -n "${PATH##*${anyenv_bin_path}}" -a -n "${PATH##*${anyenv_bin_path}:*}" ]; then
+    export PATH=$PATH:${anyenv_bin_path}
+    eval "$(anyenvenv init -)"
+  else
+    echo 'anyenv 設定済み'
+  fi
+}
+
+
+#---------------------
 # goenv
 # $ goenv -v
 # $ goenv install -l
@@ -88,4 +105,5 @@ gitconfig
 editor
 enable_direnv
 #setup_path_for_snap
-setup_goenv
+#setup_goenv
+setup_path_for_anyenv

@@ -40,15 +40,20 @@ setup_links() {
 ################################################################################
 # kyrat(sshのラッパ、sshrcは消えてしまった...)
 ################################################################################
-#echo "=====[ Setup kyrat ]"
-#readonly KYRAT_DIR=${HOME}/.local/share/kyrat
-#if [ ! -d "${KYRAT_DIR}" ] ; then
-#    git clone https://github.com/fsquillace/kyrat ${KYRAT_DIR}
-#fi
-#grep --line-number 'kyrat' ~/.bashrc || echo export 'PATH=$PATH:~/.local/share/kyrat/bin' >> ~/.bashrc
-#ln -sf ${PWD}/kyrat_bashrc ${HOME}/.config/kyrat/bashrc.d/
-#ln -sf ${PWD}/tmux.conf ${HOME}/.config/kyrat/tmux.conf.d/
-#ln -sf ${PWD}/vimrc ${HOME}/.config/kyrat/vimrc.d/
+setup_kyrat() {
+  echo "=====[ Setup kyrat ]"
+  readonly KYRAT_DIR=${HOME}/.local/share/kyrat
+  if [ ! -d "${KYRAT_DIR}" ]; then
+    git clone https://github.com/fsquillace/kyrat ${KYRAT_DIR}
+  fi
+  grep --line-number 'kyrat' ~/.bashrc || echo export 'PATH=$PATH:~/.local/share/kyrat/bin' >> ~/.bashrc
+  mkdir -p ${HOME}/.config/kyrat/bashrc.d/
+  mkdir -p ${HOME}/.config/kyrat/tmux.conf.d/
+  mkdir -p ${HOME}/.config/kyrat/vimrc.d/
+  ln -sf ${PWD}/conf.d/kyrat_bashrc ${HOME}/.config/kyrat/bashrc.d/
+  ln -sf ${PWD}/conf.d/tmux.conf ${HOME}/.config/kyrat/tmux.conf.d/
+  ln -sf ${PWD}/conf.d/vimrc ${HOME}/.config/kyrat/vimrc.d/
+}
 
 ################################################################################
 # GitConfig
@@ -61,7 +66,8 @@ setup_gitconfig() {
   git config --global core.editor vim
 }
 
-#setup_packages
+setup_packages
 setup_links
 setup_gitconfig
-setup_rust
+#setup_rust
+setup_kyrat

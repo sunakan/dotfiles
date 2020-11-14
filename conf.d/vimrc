@@ -33,17 +33,26 @@ set splitbelow
 " 新しいウィンドウを右に開く
 set splitright
 
-"===============================================================================
-"$ mkdir -p ~/.vim/colors/
-"$ curl --location --output ~/.vim/colors/gruvbox.vim https://raw.githubusercontent.com/morhetz/gruvbox/master/colors/gruvbox.vim
-"===============================================================================
 syntax on
 syntax enable
 set background=light
 colorscheme desert
-if filereadable(expand('~/.vim/colors/gruvbox.vim'))
-  colorscheme gruvbox
+"===============================================================================
+"$ mkdir -p ~/.vim/colors/
+"$ curl --location --output ~/.vim/colors/gruvbox.vim https://raw.githubusercontent.com/morhetz/gruvbox/master/colors/gruvbox.vim
+"===============================================================================
+"if filereadable(expand('~/.vim/colors/gruvbox.vim'))
+"  colorscheme gruvbox
+"endif
+"===============================================================================
+"$ mkdir -p ~/.vim/pack/themes/opt/
+"$ git clone https://github.com/dracula/vim.git ~/.vim/pack/themes/opt/dracula
+"===============================================================================
+if isdirectory(expand('~/.vim/pack/themes/opt/dracula'))
+  packadd! dracula
+  colorscheme dracula
 endif
+
 
 set fileformats=unix,dos,mac
 
