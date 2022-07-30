@@ -1,0 +1,47 @@
+" 行末の空白をハイライト
+augroup HighlightTrailingSpaces
+  autocmd!
+  autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=1
+  autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
+augroup END
+" マウスの機能をOFFにする
+set mouse = ""
+" 新しいウィンドウを下に開く
+set splitbelow
+" 新しいウィンドウを右に開く
+set splitright
+nnoremap <ESC><ESC> :nohl<CR>
+
+hi Normal      ctermbg=NONE guibg=NONE
+hi EndOfBuffer ctermbg=NONE guibg=NONE
+
+" 参考(Vimのtabpageのカスタマイズ)
+" https://girigiribauer.com/tech/20161012/
+" CTRL-H=> :tabprevious or gT(ショートカット)、元々の割当は:h CTRL-Hで見える
+" CTRL-L=> :tabnext or gt(ショートカット) 、元々の割当は:h CTRL-Lで見える
+" CTRL-N=> :tabnew、元々の割当は:h CTRL-N
+nnoremap <C-H> :tabprevious<CR>
+nnoremap <C-L> :tabnext<CR>
+nnoremap <C-N> :tabnew<Space>
+
+"===============================================================================
+" nathanaelkane/vim-indent-guides
+"
+" Install方法(SpaceVim用)
+" ~/.SpaceVim.d/init.tomlに[[custom_plugins]]として記述
+" 場所はデフォルトで ~/.cache/vimfiles/repos/github.com/nathanaelkane/vim-indent-guides
+" なので、ちぇっくするのはここ
+" Install方法(普通のVim)
+"$ mkdir -p ~/.vim/pack/plugins/start/
+"$ git clone git://github.com/nathanaelkane/vim-indent-guides.git ~/.vim/pack/plugins/start/vim-indent-guides
+"===============================================================================
+"if isdirectory(expand('~/.vim/pack/plugins/start/vim-indent-guides'))
+if isdirectory(expand('~/.cache/vimfiles/repos/github.com/nathanaelkane/vim-indent-guides'))
+  let g:indent_guides_enable_on_vim_startup = 1
+  let g:indent_guides_auto_colors=0
+  let g:indent_guides_start_level=1
+  let g:indent_guides_guide_size=1
+  hi IndentGuidesOdd  ctermbg=239
+  hi IndentGuidesEven ctermbg=241
+  IndentGuidesEnable
+endif
